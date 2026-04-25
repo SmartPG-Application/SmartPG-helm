@@ -1,0 +1,133 @@
+frontend:
+  fullnameOverride: "frontend"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-frontend
+    tag: v1.0.0
+  service:
+    port: 80
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+  hpa:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
+    cpuUtilization: 50
+
+tenantService:
+  fullnameOverride: "tenant-service"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-tenant-service
+    tag: v1.0.0
+  service:
+    port: 4001
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+
+paymentService:
+  fullnameOverride: "payment-service"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-payment-service
+    tag: v1.0.0
+  service:
+    port: 4002
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+
+messService:
+  fullnameOverride: "mess-service"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-mess-service
+    tag: v1.0.0
+  service:
+    port: 4003
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+
+complaintService:
+  fullnameOverride: "complaint-service"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-complaint-service
+    tag: v1.0.0
+  service:
+    port: 4004
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+
+notificationService:
+  fullnameOverride: "notification-service"
+  enabled: true
+  image:
+    repository: vignesh8386/smartpg-notification-service
+    tag: v1.0.0
+  service:
+    port: 4005
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+
+mongodb:
+  enabled: true
+  image:
+    repository: mongo
+    tag: "7"
+  service:
+    port: 27017
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+  persistence:
+    storageClass: "csi-standard"
+    dataSize: "5Gi"
+    configSize: "1Gi"
+
+secrets:
+  mongoUri: ""
+  jwtSecret: ""
+  mongoUsername: ""
+  mongoPassword: ""
+
+gateway:
+  className: kgateway
+
+sealedSecrets:
+  enabled: false
+  # encryptedData will hold the spec.encryptedData block from kubeseal
+  encryptedData: {}

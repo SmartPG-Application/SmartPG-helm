@@ -36,3 +36,6 @@ tenant:
 mess:
   image:
     tag: v0.0.1
+payments:
+  image:
+    tag: v0.0.1

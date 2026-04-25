@@ -18,7 +18,6 @@ frontend:
     minReplicas: 1
     maxReplicas: 5
     cpuUtilization: 50
-
 tenantService:
   fullnameOverride: "tenant-service"
   enabled: true
@@ -34,7 +33,6 @@ tenantService:
     limits:
       memory: "256Mi"
       cpu: "250m"
-
 paymentService:
   fullnameOverride: "payment-service"
   enabled: true
@@ -50,7 +48,6 @@ paymentService:
     limits:
       memory: "256Mi"
       cpu: "250m"
-
 messService:
   fullnameOverride: "mess-service"
   enabled: true
@@ -66,7 +63,6 @@ messService:
     limits:
       memory: "256Mi"
       cpu: "250m"
-
 complaintService:
   fullnameOverride: "complaint-service"
   enabled: true
@@ -82,7 +78,6 @@ complaintService:
     limits:
       memory: "256Mi"
       cpu: "250m"
-
 notificationService:
   fullnameOverride: "notification-service"
   enabled: true
@@ -98,7 +93,6 @@ notificationService:
     limits:
       memory: "256Mi"
       cpu: "250m"
-
 mongodb:
   enabled: true
   image:
@@ -117,17 +111,17 @@ mongodb:
     storageClass: "csi-standard"
     dataSize: "5Gi"
     configSize: "1Gi"
-
 secrets:
   mongoUri: ""
   jwtSecret: ""
   mongoUsername: ""
   mongoPassword: ""
-
 gateway:
   className: kgateway
-
 sealedSecrets:
   enabled: false
   # encryptedData will hold the spec.encryptedData block from kubeseal
   encryptedData: {}
+notification:
+  image:
+    tag: v0.0.1

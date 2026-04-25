@@ -27,3 +27,6 @@ sealedSecrets:
 notification:
   image:
     tag: "2347480"
+payments:
+  image:
+    tag: 0bb0c39

@@ -33,3 +33,6 @@ complaint:
 tenant:
   image:
     tag: v0.0.1
+mess:
+  image:
+    tag: v0.0.1

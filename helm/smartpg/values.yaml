@@ -125,3 +125,6 @@ sealedSecrets:
 notification:
   image:
     tag: v0.0.1
+complaint:
+  image:
+    tag: v0.0.1

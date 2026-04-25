@@ -128,3 +128,6 @@ notification:
 complaint:
   image:
     tag: v0.0.1
+tenant:
+  image:
+    tag: v0.0.1

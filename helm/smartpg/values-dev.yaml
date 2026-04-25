@@ -33,3 +33,6 @@ payments:
 mess:
   image:
     tag: ff5e6d1
+complaint:
+  image:
+    tag: b79ddd4

@@ -48,6 +48,19 @@ spec:
       kind: Deployment
       jsonPointers:
         - /spec/replicas
+    - group: apps
+      kind: StatefulSet
+      jsonPointers:
+        - /spec/volumeClaimTemplates
+    - group: gateway.networking.k8s.io
+      kind: HTTPRoute
+      jsonPointers:
+        - /spec/rules
+    - group: storage.k8s.io
+      kind: StorageClass
+      jsonPointers:
+        - /metadata/annotations
+        - /metadata/resourceVersion
     - group: ""
       kind: Secret
       jsonPointers:

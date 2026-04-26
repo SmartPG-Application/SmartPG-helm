@@ -1,7 +1,7 @@
 namespace: smartpg-dev
 frontend:
   image:
-    tag: "989208c"
+    tag: "92d298a"
 tenantService:
   image:
     tag: v1.0.0

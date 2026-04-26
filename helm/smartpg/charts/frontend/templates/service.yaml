@@ -1,9 +1,45 @@
+# Active Service - production traffic
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "frontend.fullname" . }}-active
+  labels:
+    {{- include "frontend.labels" . | nindent 4 }}
+    service-type: active
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "frontend.selectorLabels" . | nindent 4 }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+---
+# Preview Service - test before promotion
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "frontend.fullname" . }}-preview
+  labels:
+    {{- include "frontend.labels" . | nindent 4 }}
+    service-type: preview
+spec:
+  type: ClusterIP
+  selector:
+    {{- include "frontend.selectorLabels" . | nindent 4 }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+---
+# Main service - keeps HTTPRoute/Gateway compatibility
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "frontend.fullname" . }}
   labels:
     {{- include "frontend.labels" . | nindent 4 }}
+    service-type: main
 spec:
   type: ClusterIP
   selector:

@@ -1,33 +1,25 @@
 namespace: smartpg-dev
-
 frontend:
   image:
-    tag: "5315481"
-
+    tag: "989208c"
 tenantService:
   image:
     tag: v1.0.0
-
 paymentService:
   image:
     tag: v1.0.0
-
 messService:
   image:
     tag: v1.0.0
-
 complaintService:
   image:
     tag: v1.0.0
-
 notificationService:
   image:
     tag: v1.0.0
-
 mongodb:
   persistence:
     createStorageClass: true
-
 sealedSecrets:
   enabled: true
   encryptedData:

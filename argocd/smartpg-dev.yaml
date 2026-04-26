@@ -30,7 +30,6 @@ spec:
       - CreateNamespace=true
       - PrunePropagationPolicy=foreground
       - PruneLast=true
-      - ServerSideApply=true
       - RespectIgnoreDifferences=true
     retry:
       limit: 5
@@ -63,7 +62,6 @@ spec:
       kind: Secret
       jsonPointers:
         - /data
-    # Argo Rollouts controller mutates these fields
     - group: argoproj.io
       kind: Rollout
       jsonPointers:
@@ -71,7 +69,6 @@ spec:
         - /spec/template/metadata/annotations
         - /status
         - /metadata/annotations/rollout.argoproj.io~1revision
-    # Argo Rollouts controller adds hash selector and annotation to these services
     - group: ""
       kind: Service
       name: frontend-active

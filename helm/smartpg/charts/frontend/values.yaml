@@ -1,8 +1,12 @@
 image:
   repository: vignesh8386/smartpg-frontend
   tag: v1.0.0
+
+replicaCount: 1
+
 service:
   port: 80
+
 resources:
   requests:
     memory: "128Mi"
@@ -16,3 +20,9 @@ hpa:
   minReplicas: 1
   maxReplicas: 5
   cpuUtilization: 50
+
+blueGreen:
+  autoPromotionEnabled: false
+  autoPromotionSeconds: 30
+  scaleDownDelaySeconds: 30
+  previewReplicaCount: 1

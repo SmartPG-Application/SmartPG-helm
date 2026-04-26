@@ -63,13 +63,14 @@ spec:
       kind: Secret
       jsonPointers:
         - /data
-    # Argo Rollouts mutates Rollout status and replicas
+    # Argo Rollouts controller mutates these fields
     - group: argoproj.io
       kind: Rollout
       jsonPointers:
         - /spec/replicas
         - /spec/template/metadata/annotations
         - /status
+        - /metadata/annotations/rollout.argoproj.io~1revision
     # Argo Rollouts controller adds hash selector and annotation to these services
     - group: ""
       kind: Service

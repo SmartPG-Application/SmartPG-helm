@@ -4,6 +4,9 @@ metadata:
   name: {{ include "frontend.fullname" . }}
   labels:
     {{- include "frontend.labels" . | nindent 4 }}
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-options: RespectIgnoreDifferences=true
 spec:
   replicas: {{ .Values.replicaCount | default 1 }}
   revisionHistoryLimit: 3

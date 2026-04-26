@@ -10,7 +10,6 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-
   source:
     repoURL: https://github.com/SmartPG-Application/SmartPG-helm.git
     targetRevision: main
@@ -19,11 +18,9 @@ spec:
       valueFiles:
         - values.yaml
         - values-dev.yaml
-
   destination:
     server: https://kubernetes.default.svc
     namespace: smartpg-dev
-
   syncPolicy:
     automated:
       prune: false
@@ -40,9 +37,7 @@ spec:
         duration: 5s
         factor: 2
         maxDuration: 3m
-
   revisionHistoryLimit: 5
-
   ignoreDifferences:
     - group: apps
       kind: Deployment

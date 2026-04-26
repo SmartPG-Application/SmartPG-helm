@@ -51,6 +51,8 @@ spec:
       kind: HTTPRoute
       jsonPointers:
         - /spec/rules
+        - /spec/parentRefs
+        - /spec/hostnames
     - group: storage.k8s.io
       kind: StorageClass
       jsonPointers:
@@ -60,4 +62,3 @@ spec:
       kind: Secret
       jsonPointers:
         - /data
-EOF
